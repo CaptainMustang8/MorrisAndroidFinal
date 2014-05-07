@@ -49,25 +49,25 @@
                 android:id="@+id/option1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Eric Dickerson"
+                android:text="@string/app_name"
                 android:textColor="#FFFFFF" />
             <RadioButton
                 android:id="@+id/option2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Doak Walker" 
+                android:text="@string/app_name" 
                 android:textColor="#FFFFFF" />
             <RadioButton
                 android:id="@+id/option3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Don Meredith" 
+                android:text="@string/app_name" 
                 android:textColor="#FFFFFF" />
             <RadioButton
                 android:id="@+id/option1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="George W. Bush" 
+                android:text="@string/app_name" 
                 android:textColor="#FFFFFF" />
 		</RadioGroup>
 		<Button
