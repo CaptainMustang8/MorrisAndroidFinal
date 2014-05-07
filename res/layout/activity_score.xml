@@ -4,4 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.morrisandroidfinal.ScoreActivity"
-    tools:ignore="MergeRootFrame" />
+    tools:ignore="MergeRootFrame">
+    
+    <RelativeLayout 
+        android:id="@+id/scorepage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
+        
+        <ImageView 
+            android:id="@+id/diamondM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:background="@drawable/mustangband"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        
+        
+        
+    </RelativeLayout>
+</FrameLayout>
+

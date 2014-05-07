@@ -8,9 +8,9 @@
     
     <RelativeLayout 
         android:id="@+id/trivia_page"
-        android:layout_width="match_parent"	
-        android:layout_height="match_parent"
-        android:background="@color/blue"
+        android:layout_width="wrap_content"	
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue2"
         android:gravity="center_horizontal">
         
         <TextView
@@ -75,6 +75,7 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:text="Next question"
+		    android:textColor="@color/red"
 		    android:layout_alignParentBottom="true" />
 	</RelativeLayout>
 </FrameLayout>
