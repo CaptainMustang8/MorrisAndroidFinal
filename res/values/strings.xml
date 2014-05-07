@@ -4,6 +4,9 @@
     <string name="app_name">MorrisAndroidFinal</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
     <color name="blue">#1F3FB8</color>
+
+    <string name="title_activity_score">ScoreActivity</string>
 
 </resources>
