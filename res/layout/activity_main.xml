@@ -17,7 +17,7 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="50px"
+            android:textSize="35sp"
             android:textStyle="bold"
             android:text="Mustang Trivia"
             android:textColor="#FFFFFF"
@@ -36,7 +36,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
-            android:textSize="30px"
             android:text="@string/app_name"
             android:textColor="#FFFFFF" 
             android:layout_below="@id/pony_background"/>
@@ -57,25 +56,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Doak Walker" 
-                android:textColor="#FFFFFF"/>
+                android:textColor="#FFFFFF" />
             <RadioButton
                 android:id="@+id/option3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Don Meredith" 
-                android:textColor="#FFFFFF"/>
+                android:textColor="#FFFFFF" />
             <RadioButton
                 android:id="@+id/option1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="George W. Bush" 
-                android:textColor="#FFFFFF"/>
+                android:textColor="#FFFFFF" />
 		</RadioGroup>
 		<Button
 		    android:id="@+id/next_question"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:text="Next question"
-		    android:layout_below="@id/options" />
+		    android:layout_alignParentBottom="true" />
 	</RelativeLayout>
 </FrameLayout>
