@@ -31,11 +31,12 @@ public final class R {
         public static final int blue2=0x7f020001;
         public static final int ic_launcher=0x7f020002;
         public static final int mustangband=0x7f020003;
+        public static final int smu=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000d;
+        public static final int action_settings=0x7f09000e;
+        public static final int block_letters=0x7f09000c;
         public static final int container=0x7f090000;
-        public static final int diamondM=0x7f09000c;
         public static final int next_question=0x7f09000a;
         public static final int option1=0x7f090006;
         public static final int option2=0x7f090007;
@@ -44,6 +45,7 @@ public final class R {
         public static final int options=0x7f090005;
         public static final int pony_background=0x7f090003;
         public static final int question=0x7f090004;
+        public static final int score_text=0x7f09000d;
         public static final int scorepage=0x7f09000b;
         public static final int title=0x7f090002;
         public static final int trivia_page=0x7f090001;

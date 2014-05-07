@@ -10,18 +10,25 @@
         android:id="@+id/scorepage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white" >
+        android:background="@drawable/blue2" >
         
         <ImageView 
-            android:id="@+id/diamondM"
+            android:id="@+id/block_letters"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" 
-            android:background="@drawable/mustangband"
-            android:layout_alignParentTop="true"
+            android:background="@drawable/smu"
+            android:layout_marginTop="10sp"
             android:layout_centerHorizontal="true" />
-        
-        
-        
+        <TextView
+            android:id="@+id/score_text" 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="15sp"
+            android:text="@string/app_name"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:layout_below="@id/block_letters"
+            android:gravity="center" />
     </RelativeLayout>
 </FrameLayout>
 

@@ -20,7 +20,7 @@
             android:textSize="35sp"
             android:textStyle="bold"
             android:text="Mustang Trivia"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:gravity="center" />
         
         <ImageView 
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="@string/app_name"
-            android:textColor="#FFFFFF" 
+            android:textColor="@color/white" 
             android:layout_below="@id/pony_background"/>
         <RadioGroup
             android:id="@+id/options"
@@ -50,25 +50,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/white" />
             <RadioButton
                 android:id="@+id/option2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name" 
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/white" />
             <RadioButton
                 android:id="@+id/option3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name" 
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/white" />
             <RadioButton
                 android:id="@+id/option4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name" 
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/white" />
 		</RadioGroup>
 		<Button
 		    android:id="@+id/next_question"
