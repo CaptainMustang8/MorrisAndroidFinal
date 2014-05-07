@@ -7,5 +7,6 @@
     <color name="white">#FFFFFF</color>
     <color name="red">#E70032</color>
     <string name="title_activity_score">ScoreActivity</string>
+    <string name="developer_name">Developer: Nick Morris</string>
 
 </resources>
