@@ -14,12 +14,21 @@ public class QuizQuestion {
 	
 	//default constructor
 	public QuizQuestion() {
-		
+		qID = 0;
+		setQuestion("");
+		setFirstOpt("");
+		setSecondOpt("");
+		setThirdOpt("");
+		setAnswer("");
 	}
 	
 	//main constructor
-	public QuizQuestion(String question, String num1, String num2, String num3, String correct) {
-		
+	public QuizQuestion(String newQuestion, String num1, String num2, String num3, String correct) {
+		setQuestion(newQuestion);
+		setFirstOpt(num1);
+		setSecondOpt(num2);
+		setThirdOpt(num3);
+		setAnswer(correct);
 	}
 	
 	
