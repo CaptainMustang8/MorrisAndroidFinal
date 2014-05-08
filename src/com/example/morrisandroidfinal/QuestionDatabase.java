@@ -1,6 +1,10 @@
 package com.example.morrisandroidfinal;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -83,10 +87,13 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		createQuizQuestion(q8);
 		createQuizQuestion(q9);
 		createQuizQuestion(q10);
+		
+		//closing the database
+		qqDB.close();
 	}
 	
-	// Method for adding QuizQuestions to table of QuizQuestions
 	public void createQuizQuestion(QuizQuestion newQQ) {
+		// Method for adding QuizQuestions to table of QuizQuestions
 		ContentValues vals = new ContentValues();
 		vals.put(qq, newQQ.getQuestion());
 		vals.put(opt1, newQQ.getFirstOpt());
@@ -94,6 +101,31 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		vals.put(opt3, newQQ.getThirdOpt());
 		vals.put(ans, newQQ.getAnswer());
 		qqDB.insert(qq, null, vals);	
+	}
+	
+	public ArrayList<QuizQuestion> getQuizQuestions() {
+		/* This method gets all quiz questions from the database
+		 * and returns an ArrayList of QuizQuestion objects.  This can be 
+		 * shuffled so that we have a different order of questions every
+		 * time through the quiz.
+		 */
+		ArrayList<QuizQuestion> quiz = new ArrayList<QuizQuestion>();
+		String getQQ = "Select * from " + tableName;
+		qqDB = getReadableDatabase();
+		Cursor c = qqDB.rawQuery(getQQ, null);
+		if(c.moveToFirst()) {
+			do {
+				QuizQuestion q = new QuizQuestion();
+				q.setID(c.getInt(0));
+				q.setQuestion(c.getString(1));
+				q.setFirstOpt(c.getString(2));
+				q.setSecondOpt(c.getString(3));
+				q.setThirdOpt(c.getString(4));
+				q.setAnswer(c.getString(5));
+				quiz.add(q);
+			} while (c.moveToNext());
+		}
+		return quiz;
 	}
 
 }
