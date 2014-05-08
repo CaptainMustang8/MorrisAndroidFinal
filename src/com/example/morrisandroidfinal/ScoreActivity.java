@@ -2,22 +2,26 @@ package com.example.morrisandroidfinal;
 import java.io.IOException;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ScoreActivity extends Activity {
-	
+	// declares all views here, to be inflated within the onCreate method
 	MediaPlayer newPlayer;
 	AssetFileDescriptor assets;
 	RelativeLayout background;
 	ImageView smu;
 	TextView snarkyResponse;
+	Button newGame;
 	
 
 	@Override
@@ -27,12 +31,14 @@ public class ScoreActivity extends Activity {
 		background = (RelativeLayout)findViewById(R.id.scorepage);
 		smu = (ImageView)findViewById(R.id.block_letters);
 		snarkyResponse = (TextView)findViewById(R.id.score_text);
+		newGame = (Button)findViewById(R.id.new_game);
 		
 		/* Create a new media player that will play Peruna
 		 * at the end of the Mustang Trivia game
 		 */
 		
 		try {
+			// Opens mp3 file of Peruna and plays it
 			assets = getAssets().openFd("peruna.mp3");
 			newPlayer = new MediaPlayer();
 			newPlayer.setDataSource(assets.getFileDescriptor(), assets.getStartOffset(), assets.getLength());
@@ -44,6 +50,7 @@ public class ScoreActivity extends Activity {
 			e.printStackTrace();
 		}
 		
+		// This grabs the score from the previous bundle
 		Bundle b = getIntent().getExtras();
 		int score = b.getInt("score");
 		
@@ -71,6 +78,18 @@ public class ScoreActivity extends Activity {
 		case 10: snarkyResponse.setText("You scored a 10.  Well done!  You've certainly earned your beanie, freshman.  HUBBA!");
 				break;
 		}
+		
+		// this onClickListener will return us to the first question, 
+		// and a new quiz will begin
+		newGame.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent newInt = new Intent(ScoreActivity.this, MainActivity.class);
+				startActivity(newInt);
+				finish();
+			}
+		});
 	}
 
 	@Override

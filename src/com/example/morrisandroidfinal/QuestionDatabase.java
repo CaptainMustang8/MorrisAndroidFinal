@@ -87,9 +87,6 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		createQuizQuestion(q8);
 		createQuizQuestion(q9);
 		createQuizQuestion(q10);
-		
-		//closing the database
-		//qqDB.close();
 	}
 	
 	public void createQuizQuestion(QuizQuestion newQQ) {

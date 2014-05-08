@@ -3,12 +3,16 @@
 
     <string name="app_name">MorrisAndroidFinal</string>
     <string name="action_settings">Settings</string>
+
     <color name="blue">#1F3FB8</color>
     <color name="white">#FFFFFF</color>
     <color name="red">#E70032</color>
+
     <string name="title_activity_score">ScoreActivity</string>
     <string name="developer_name">Developer: Nick Morris</string>
     <string name="next">Next Question</string>
     <string name="start_over">New Game</string>
+    <string name="title_activity_title_screen">TitleScreen</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
