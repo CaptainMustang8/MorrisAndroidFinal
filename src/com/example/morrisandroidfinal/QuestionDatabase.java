@@ -15,8 +15,9 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 	private static final int dbNum = 1;
 	private static final String dbName = "MustangTrivia";
 	private static final String tableName = "QuizQuestions";
+	// Now column names for the table QuizQuestions
 	private static final String qqID = "id";
-	private static final String qq = "QuizQuestion";
+	private static final String qq = "QuizQuestion";//text representation of question
 	private static final String opt1 = "FirstOption";
 	private static final String opt2 = "SecondOption";
 	private static final String opt3 = "ThirdOption";
@@ -37,7 +38,7 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 				"(" + qqID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + qq + 
 				" TEXT, " + opt1 + " TEXT, " + opt2 + " TEXT, " + opt3 + " TEXT, " 
 				+ ans + " TEXT)";
-		//execute the previous SQL statement
+		//execute the sqlStatement
 		qqDB.execSQL(sqlStatement);
 		createQuizQuestions();
 		
@@ -47,6 +48,7 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		// For upgrading to a more current database of QuizQuestions
 		qqDB.execSQL("DROP TABLE IF EXISTS " + tableName);
 		onCreate(qqDB);
+		// new DB is created, the cycle begins again
 	}
 	
 	private void createQuizQuestions() {
@@ -91,6 +93,8 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 	
 	public void createQuizQuestion(QuizQuestion newQQ) {
 		// Method for adding QuizQuestions to table of QuizQuestions
+		// Inserts a new row of values to QuizQuestions whenever a new 
+		// QuizQuestion is added.
 		ContentValues vals = new ContentValues();
 		vals.put(qq, newQQ.getQuestion());
 		vals.put(opt1, newQQ.getFirstOpt());
@@ -112,8 +116,12 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		Cursor c = qqDB.rawQuery(getQQ, null);
 		// Goes through a loop and adds QuizQuestions to the ArrayList as 
 		// long as there is a QuizQuestion object to add
+		// Basically, if there is a first row, we will enter the loop
 		if(c.moveToFirst()) {
 			do {
+				// Creates new QuizQuestion object and initializes it using
+				// string values provided by the cursor c
+				// After this, q is added to the QuizQuestion ArrayList
 				QuizQuestion q = new QuizQuestion();
 				q.setID(c.getInt(0));
 				q.setQuestion(c.getString(1));
@@ -122,7 +130,9 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 				q.setThirdOpt(c.getString(4));
 				q.setAnswer(c.getString(5));
 				quiz.add(q);
-			} while (c.moveToNext());
+			} 
+			// loop continues as long as the cursor passes over another row
+			while (c.moveToNext());
 		}
 		return quiz;
 	}

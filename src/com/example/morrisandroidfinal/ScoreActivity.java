@@ -54,6 +54,7 @@ public class ScoreActivity extends Activity {
 		Bundle b = getIntent().getExtras();
 		int score = b.getInt("score");
 		
+		// Switch statement for series of snarky responses
 		switch(score){
 		case 0: snarkyResponse.setText("You scored a 0.  I'm not sure why you got this app.");
 				break;
