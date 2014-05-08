@@ -1,16 +1,47 @@
 package com.example.morrisandroidfinal;
-
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 
-public class QuestionDatabase {
+public class QuestionDatabase extends SQLiteOpenHelper {
+	//creating a database containing QuizQuestions
+	private SQLiteDatabase qqDB;
+	private static final int dbNum = 1;
+	private static final String dbName = "MustangTrivia";
+	private static final String tableName = "QuizQuestions";
+	private static final String qqID = "id";
+	private static final String qq = "QuizQuestion";
+	private static final String opt1 = "FirstOption";
+	private static final String opt2 = "SecondOption";
+	private static final String opt3 = "ThirdOption";
+	private static final String ans = "Answer";
 	
+	//default constructor for QuestionDatabase
 	public QuestionDatabase (Context context) {
+		super(context, dbName, null, dbNum);
+	}
+	
+	@Override
+	public void onCreate(SQLiteDatabase myDB){
+		/* Create a database with a table called QuizQuestions, containing all QuizQuestions
+		 * with possible answers
+		 */
+		qqDB = myDB;
+		String sqlStatement = "Create table if not exists" + tableName +
+				"(" + qqID + "integer primary key autoincrement" + qq + 
+				"text," + opt1 + "text," + opt2 + "text," + opt3 + "text," 
+				+ ans + "text)";
+		//execute the previous SQL statement
+		qqDB.execSQL(sqlStatement);
 		
 	}
 	
+	public void onUpgrade(SQLiteDatabase newDB, int oldNum, int newNum) {
+		
+	}
 	
-	private void addTrivia() {
+	private void addQuizQuestions() {
 		//Adding questions to the database
 		//
 		QuizQuestion q1 = new QuizQuestion("Who is SMU’s only Heisman Trophy winner?", "Eric Dickerson", "Don Meredith", 
