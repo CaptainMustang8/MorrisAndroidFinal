@@ -33,10 +33,10 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		 * with possible answers
 		 */
 		qqDB = myDB;
-		String sqlStatement = "Create table if not exists" + tableName +
-				"(" + qqID + "integer primary key autoincrement" + qq + 
-				"text," + opt1 + "text," + opt2 + "text," + opt3 + "text," 
-				+ ans + "text)";
+		String sqlStatement = "CREATE TABLE IF NOT EXISTS " + tableName +
+				"(" + qqID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + qq + 
+				" TEXT, " + opt1 + " TEXT, " + opt2 + " TEXT, " + opt3 + " TEXT, " 
+				+ ans + " TEXT)";
 		//execute the previous SQL statement
 		qqDB.execSQL(sqlStatement);
 		createQuizQuestions();
@@ -45,7 +45,7 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 	
 	public void onUpgrade(SQLiteDatabase newDB, int oldNum, int newNum) {
 		// For upgrading to a more current database of QuizQuestions
-		qqDB.execSQL("Drop table if exists" + tableName);
+		qqDB.execSQL("DROP TABLE IF EXISTS " + tableName);
 		onCreate(qqDB);
 	}
 	
@@ -89,7 +89,7 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		createQuizQuestion(q10);
 		
 		//closing the database
-		qqDB.close();
+		//qqDB.close();
 	}
 	
 	public void createQuizQuestion(QuizQuestion newQQ) {
@@ -100,7 +100,7 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		vals.put(opt2, newQQ.getSecondOpt());
 		vals.put(opt3, newQQ.getThirdOpt());
 		vals.put(ans, newQQ.getAnswer());
-		qqDB.insert(qq, null, vals);	
+		qqDB.insert(tableName, null, vals);	
 	}
 	
 	public ArrayList<QuizQuestion> getQuizQuestions() {
@@ -111,7 +111,7 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		 */
 		ArrayList<QuizQuestion> quiz = new ArrayList<QuizQuestion>();
 		String getQQ = "Select * from " + tableName;
-		qqDB = getReadableDatabase();
+		qqDB = this.getReadableDatabase();
 		Cursor c = qqDB.rawQuery(getQQ, null);
 		// Goes through a loop and adds QuizQuestions to the ArrayList as 
 		// long as there is a QuizQuestion object to add
@@ -129,5 +129,4 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		}
 		return quiz;
 	}
-
 }
