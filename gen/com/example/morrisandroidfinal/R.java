@@ -34,9 +34,10 @@ public final class R {
         public static final int smu=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000e;
+        public static final int action_settings=0x7f09000f;
         public static final int block_letters=0x7f09000c;
         public static final int container=0x7f090000;
+        public static final int new_game=0x7f09000e;
         public static final int next_question=0x7f09000a;
         public static final int option1=0x7f090006;
         public static final int option2=0x7f090007;
@@ -62,6 +63,8 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int developer_name=0x7f050003;
+        public static final int next=0x7f050004;
+        public static final int start_over=0x7f050005;
         public static final int title_activity_score=0x7f050002;
     }
     public static final class style {

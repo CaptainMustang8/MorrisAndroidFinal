@@ -29,6 +29,16 @@
             android:textColor="@color/white"
             android:layout_below="@id/block_letters"
             android:gravity="center" />
+        
+        <Button
+            android:id="@+id/new_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:text="@string/start_over"
+            android:textColor="@color/red"
+            android:textSize="25sp" />
     </RelativeLayout>
 </FrameLayout>
 
