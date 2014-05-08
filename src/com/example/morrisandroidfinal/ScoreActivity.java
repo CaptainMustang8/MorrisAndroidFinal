@@ -7,16 +7,26 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class ScoreActivity extends Activity {
 	
 	MediaPlayer newPlayer;
 	AssetFileDescriptor assets;
+	RelativeLayout background;
+	ImageView smu;
+	TextView snarkyResponse;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_score);
+		background = (RelativeLayout)findViewById(R.id.scorepage);
+		smu = (ImageView)findViewById(R.id.block_letters);
+		snarkyResponse = (TextView)findViewById(R.id.score_text);
 		
 		/* Create a new media player that will play Peruna
 		 * at the end of the Mustang Trivia game
@@ -33,7 +43,34 @@ public class ScoreActivity extends Activity {
 		catch(IOException e) {
 			e.printStackTrace();
 		}
-
+		
+		Bundle b = getIntent().getExtras();
+		int score = b.getInt("score");
+		
+		switch(score){
+		case 0: snarkyResponse.setText("You scored a 0.  I'm not sure why you got this app.");
+				break;
+		case 1: snarkyResponse.setText("You scored a 1.  You're probably a Horned Frog.");
+				break;
+		case 2: snarkyResponse.setText("You scored a 2.  Dude.");
+				break;
+		case 3: snarkyResponse.setText("You scored a 3.  .300 is a good batting average, but there's no baseball at SMU, is there?");
+				break;
+		case 4: snarkyResponse.setText("You scored a 4.  I'll give you a break, you must be new here.");
+				break;
+		case 5: snarkyResponse.setText("You scored a 5.  Not bad, not good.  You've got work to do, freshman...");
+				break;
+		case 6: snarkyResponse.setText("You scored a 6.  You're improving, I'll give you that.");
+				break;
+		case 7: snarkyResponse.setText("You scored a 7.  Pretty good, but there's always room for improvement.");
+				break;
+		case 8: snarkyResponse.setText("You scored a 8.  Solid.  It must be day 3 of band camp.");
+				break;
+		case 9: snarkyResponse.setText("You scored a 9.  You're almost there!");
+				break;
+		case 10: snarkyResponse.setText("You scored a 10.  Well done!  You've certainly earned your beanie, freshman.  HUBBA!");
+				break;
+		}
 	}
 
 	@Override
