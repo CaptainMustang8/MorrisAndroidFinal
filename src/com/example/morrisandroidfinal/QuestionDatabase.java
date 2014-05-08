@@ -113,6 +113,8 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 		String getQQ = "Select * from " + tableName;
 		qqDB = getReadableDatabase();
 		Cursor c = qqDB.rawQuery(getQQ, null);
+		// Goes through a loop and adds QuizQuestions to the ArrayList as 
+		// long as there is a QuizQuestion object to add
 		if(c.moveToFirst()) {
 			do {
 				QuizQuestion q = new QuizQuestion();
