@@ -1,4 +1,5 @@
 package com.example.morrisandroidfinal;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -34,16 +35,23 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 				+ ans + "text)";
 		//execute the previous SQL statement
 		qqDB.execSQL(sqlStatement);
+		createQuizQuestions();
 		
 	}
 	
 	public void onUpgrade(SQLiteDatabase newDB, int oldNum, int newNum) {
-		
+		// For upgrading to a more current database of QuizQuestions
+		qqDB.execSQL("Drop table if exists" + tableName);
+		onCreate(qqDB);
 	}
 	
-	private void addQuizQuestions() {
-		//Adding questions to the database
-		//
+	private void createQuizQuestions() {
+		/* Adding questions to the database
+		 * This method allows us to create QuizQuestions en masse
+		 * by creating new objects, then calling the createQuizQuestions method
+		 * to add them to the database.
+		 * In this case, the questions are hardcoded.
+		 */
 		QuizQuestion q1 = new QuizQuestion("Who is SMU’s only Heisman Trophy winner?", "Eric Dickerson", "Don Meredith", 
 				"George W. Bush", "Doak Walker");
 		QuizQuestion q2 = new QuizQuestion("In what year was the Mustang Band founded?", "1915", "1941",
@@ -63,6 +71,29 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 				"Tailgating", "Pregaming", "a miracle", "Boulevarding");
 		QuizQuestion q10 = new QuizQuestion("In the last four years, the Mustang Band has been to all of the following places except -",
 				"Honolulu", "London", "New York City", "Albuquerque");
+		
+		// Calling createQuizQuestion method for each question now
+		createQuizQuestion(q1);
+		createQuizQuestion(q2);
+		createQuizQuestion(q3);
+		createQuizQuestion(q4);
+		createQuizQuestion(q5);
+		createQuizQuestion(q6);
+		createQuizQuestion(q7);
+		createQuizQuestion(q8);
+		createQuizQuestion(q9);
+		createQuizQuestion(q10);
+	}
+	
+	// Method for adding QuizQuestions to table of QuizQuestions
+	public void createQuizQuestion(QuizQuestion newQQ) {
+		ContentValues vals = new ContentValues();
+		vals.put(qq, newQQ.getQuestion());
+		vals.put(opt1, newQQ.getFirstOpt());
+		vals.put(opt2, newQQ.getSecondOpt());
+		vals.put(opt3, newQQ.getThirdOpt());
+		vals.put(ans, newQQ.getAnswer());
+		qqDB.insert(qq, null, vals);	
 	}
 
 }
